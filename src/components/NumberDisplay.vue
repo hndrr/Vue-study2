@@ -1,8 +1,9 @@
 <template>
   <main>
-    <button @click="incrementer()">{{ name }}</button>
-    <button @click="incrementer2(2)">{{ name }}2</button>
-    <button @click="incrementer2(vueNumber)">{{ name }}3</button>
+    <button @click="alerter()">{{ name }}</button>
+    <button @click="alerter2(2)">{{ name }}2</button>
+    <button @click="alerter3(number)">{{ name }}3</button>
+    <button @click="alerter3(2)">{{ name }}3</button>
   </main>
 </template>
 
@@ -13,16 +14,25 @@ export default {
   data() {
     return {
       //ReativeなData
-      vueNumber: number,
+      number: 0,
       name: "hndr"
     };
   },
   methods: {
-    incrementer() {
-      alert(this.vueNumber);
+    alerter() {
+      alert(this.number);
     },
-    incrementer2(value) {
+    alerter2(value) {
       alert(value);
+    },
+    alerter3(value) {
+      console.log(this.numberIncrement(value));
+    },
+    numberIncrement(value) {
+      return value++;
+    },
+    numberDecrement() {
+      return this.number--;
     }
   }
 };
