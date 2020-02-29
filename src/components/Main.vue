@@ -1,5 +1,9 @@
 <template>
-  <main @click="alerter()">{{ name }}</main>
+  <main>
+    <h2 @click="alerter()">{{ name }}</h2>
+    <h2 @click="alerter2('aaaaaa')">{{ name }}2</h2>
+    <h2 @click="alerter2(vueNumber)">{{ name }}3</h2>
+  </main>
 </template>
 
 <script>
@@ -16,6 +20,9 @@ export default {
   methods: {
     alerter() {
       alert(this.vueNumber);
+    },
+    alerter2(value) {
+      alert(value);
     }
   }
 };
