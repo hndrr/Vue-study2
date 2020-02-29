@@ -1,15 +1,22 @@
 <template>
-  <main>{{ vueNumber }}</main>
+  <main @click="alerter()">{{ name }}</main>
 </template>
 
 <script>
-const number = 2 * 10;
+const number = 2 * 19;
 console.log(number);
 export default {
   data() {
     return {
-      vueNumber: number
+      //ReativeなData
+      vueNumber: number,
+      name: "hndr"
     };
+  },
+  methods: {
+    alerter() {
+      alert(this.vueNumber);
+    }
   }
 };
 </script>
