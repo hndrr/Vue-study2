@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>{{ number }} {{double}}</h2>
+    <h2 :class="numberClass">{{ number }} {{double}}</h2>
     <button @click="valueIncrement(1)"></button>
     <button @click="add(2)">add</button>
     <button @click="numberIncrement(number)">+1</button>
@@ -22,6 +22,12 @@ export default {
   computed: {
     double() {
       return this.number * 2;
+    },
+    numberClass() {
+      if (this.number > 50) {
+        return "red";
+      }
+      return "blue";
     }
   },
   methods: {
@@ -53,5 +59,11 @@ export default {
 <style>
 button {
   margin: 0 10px;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
 }
 </style>
