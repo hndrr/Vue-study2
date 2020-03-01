@@ -1,9 +1,10 @@
 <template>
   <main>
-    <button @click="alerter()">{{ name }}</button>
-    <button @click="alerter2(2)">{{ name }}2</button>
-    <button @click="alerter3(number)">{{ name }}3</button>
-    <button @click="alerter3(2)">{{ name }}3</button>
+    <h2>{{ number }} {{double}}</h2>
+    <button @click="valueIncrement(1)"></button>
+    <button @click="add(2)">add</button>
+    <button @click="numberIncrement(number)">+1</button>
+    <button @click="numberDecrement(2)">-1</button>
   </main>
 </template>
 
@@ -18,6 +19,11 @@ export default {
       name: "hndr"
     };
   },
+  computed: {
+    double() {
+      return this.number * 2;
+    }
+  },
   methods: {
     alerter() {
       alert(this.number);
@@ -28,11 +34,17 @@ export default {
     alerter3(value) {
       console.log(this.numberIncrement(value));
     },
-    numberIncrement(value) {
+    valueIncrement(value) {
       return value++;
+    },
+    numberIncrement() {
+      return this.number++;
     },
     numberDecrement() {
       return this.number--;
+    },
+    add(value) {
+      return (this.number = this.number + value);
     }
   }
 };
